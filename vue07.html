@@ -1,0 +1,33 @@
+<html>
+<head>
+
+<meta charset = "utf-8">
+<meta name="viewport" content="width = device-width, height = device-height, initial-scale = 1.0, user-scalable = no">
+
+</head>
+<body>
+
+<div id="app">
+  <button @click = "increement">&#x1f44d;</button>
+  <p>Counter: {{ counter }}</p>
+  <p>Likes {{ likes }}</p>
+</div>
+
+<script src="https://unpkg.com/vue"></script>
+<script>
+let app = new Vue({
+  el: '#app',
+  data: {
+    counter: 0,
+    likes: 0
+  },
+  methods: {
+  	increement() {
+  		this.counter += 2
+  		this.likes++
+  	}
+  }
+})
+</script>
+</body>
+</html>
