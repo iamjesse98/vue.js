@@ -1,0 +1,36 @@
+<html>
+<head>
+
+<meta charset = "utf-8">
+<meta name="viewport" content="width = device-width, height = device-height, initial-scale = 1.0, user-scalable = no">
+
+</head>
+<body>
+
+<div id="app">
+  <button @click = "show = !show">Toggle</button>
+  <p v-if = "!show">I'm part-time visible!</p>
+  <p v-else>Am I visible?</p>
+  <p v-show = "show">Hurray, I'm here.</p>
+  <hr>
+  <ul>
+  	<li v-for = "(person, index) in persons">{{ index }}) {{ person.name }} is {{ person.age }} years old.</li>
+  </l>
+</div>
+
+<script src="https://unpkg.com/vue"></script>
+<script>
+let app = new Vue({
+  el: '#app',
+  data: {
+    show: true,
+    persons: [
+    	{name: `Jesse`, age: 18},
+    	{name: `Bella`, age: 23},
+    	{name: `Nora`, age: 16}
+    ]
+  }
+})
+</script>
+</body>
+</html>
