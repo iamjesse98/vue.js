@@ -1,0 +1,38 @@
+<html>
+<head>
+
+<meta charset = "utf-8">
+<meta name="viewport" content="width = device-width, height = device-height, initial-scale = 1.0, user-scalable = no">
+
+</head>
+<body>
+
+<div id="app">
+	<p>{{ title }}</p>
+	<p>{{ theTitle }}</p>
+	<p>{{ title | uppercase | lowercase }}</p>
+	<p>{{ message | uppercase }}</p>
+</div>
+
+<script src="https://unpkg.com/vue"></script>
+<script>
+Vue.filter(`uppercase`, value => value.toUpperCase() ) //globally
+
+let app = new Vue({
+  el: '#app',
+  data: {
+	title: `Hello Vue!!!`,
+	message: `something`
+  },
+  computed: {
+  	theTitle: function() { return this.title.toUpperCase() }
+  },
+  filters: {
+  	lowercase: function(value) {
+  		return value.toLowerCase() //locally
+  	}
+  }
+})
+</script>
+</body>
+</html>
