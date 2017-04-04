@@ -1,0 +1,59 @@
+<html>
+<head>
+
+<meta charset = "utf-8">
+<meta name="viewport" content="width = device-width, height = device-height, initial-scale = 1.0, user-scalable = no">
+
+<style>
+    .user {
+    border: 1px solid #ccc;
+    background-color: white;
+    padding: 10px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div id="app">
+    <p>{{ title }}</p>
+    <hr>
+    <app-user></app-user>
+    <app-user></app-user>
+    <my-component></my-component>
+</div>
+
+<script src="https://unpkg.com/vue"></script>
+<script>
+    Vue.component('app-user', {
+        data: function() {
+            return {
+                users: [{ username: 'Max' },
+                        { username: 'Chris'},
+                        { username: 'Anna' }]
+            }
+        },
+        template: `<div>
+        		<div class="user" v-for="user in users">
+        			<p>Username: {{ user.username }}</p>
+        		</div>
+        	   </div>`
+    })
+    
+    new Vue({
+        el: '#app',
+        data: {
+            title: 'Hello World!',
+        },
+        components: {
+        	     'my-component':  {
+        	     	template: `<div>A custom component!</div>`
+        	     }
+        	    }
+    })
+</script>
+
+</body>
+
+</html>
